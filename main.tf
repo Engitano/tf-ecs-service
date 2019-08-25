@@ -43,7 +43,7 @@ resource "aws_ecs_service" "svc" {
   deployment_maximum_percent         = var.deployment_maximum_percent
   deployment_minimum_healthy_percent = var.deployment_minimum_healthy_percent
 
-  dynamc "load_balancer" {
+  dynamic "load_balancer" {
     for_each = local.exposed_tasks
     iterator = task
     content {
