@@ -56,7 +56,7 @@ resource "aws_ecs_service" "svc" {
 
 data "template_file" "env_vars" {
   count    = length(var.tasks)
-  template = "[${join(",", formatlist("\"%s\": \"%s\"", keys(var.tasks[count.index].envVars), values(var.tasks[count.index].envVars)))}]"
+  template = "[${join(",", formatlist("{\"name\": \"%s\", \"value\": \"%s\"}", keys(var.tasks[count.index].envVars), values(var.tasks[count.index].envVars)))}]"
 
 }
 
