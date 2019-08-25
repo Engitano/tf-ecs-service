@@ -6,7 +6,7 @@
     "essential": ${ESSENTIAL},
     "portMappings": [
     {
-        "containerPort": PORT
+        "containerPort": ${PORT}
     }
     ],
     "environment": ${ENV_VARS}
