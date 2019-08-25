@@ -62,7 +62,7 @@ data "template_file" "env_vars" {
 
 data "template_file" "task_defs" {
   count    = length(var.tasks)
-  template = file("task-definition.json")
+  template = file("${path.module}/task-definition.json")
   vars = {
     NAME      = var.tasks[count.index].name
     IMAGE     = var.tasks[count.index].image
