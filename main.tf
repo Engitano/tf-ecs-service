@@ -48,8 +48,8 @@ resource "aws_ecs_service" "svc" {
     iterator = task
     content {
       target_group_arn = var.alb_target_group_arn
-      container_name   = task.name
-      container_port   = task.port
+      container_name   = task.value.name
+      container_port   = task.value.port
     }
   }
 }
